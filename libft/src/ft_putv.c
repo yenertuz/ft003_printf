@@ -11,7 +11,7 @@ static void	putv_helper(int c, char *key, long value)
 	if (c == 'c')
 		{PS(key); PS(": "); PC((char)(value)); NL;}
 	if (c == 'u')
-		{PS(key); PS(": "); ft_putulong(value); NL;}
+		{PS(key); PS(": "); ft_putulong((unsigned long)value); NL;}
 	
 }
 

@@ -8,7 +8,7 @@ static void	putulong_helper(unsigned long number)
 		return ;
 	result = number % 10;
 	putulong_helper(number / 10);
-	ft_putchar('0' + number);
+	ft_putchar('0' + result);
 }
 
 void		ft_putulong(unsigned long number)

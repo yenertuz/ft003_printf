@@ -102,6 +102,8 @@ void			ft_putlong(long number);
 
 void			ft_putv(int c, ...);
 
+char			*ft_ltoi(long number);
+
 
 /*
 t_iarr			*iarr_new(int c);
