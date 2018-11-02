@@ -11,7 +11,7 @@ char	*ft_ltoi(long number)
 		return (ft_strdup("0"));
 	ft_memset(buffer, ' ', 22);
 	buffer[22] = 0;
-	counter = 0;
+	counter = 1;
 	is_negative = 0;
 	if (number < 0)
 		is_negative = 1;

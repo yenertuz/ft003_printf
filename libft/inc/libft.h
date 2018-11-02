@@ -103,7 +103,11 @@ void			ft_putlong(long number);
 void			ft_putv(int c, ...);
 
 char			*ft_ltoi(long number);
+char			*ft_utoi(unsigned long number);
 
+int				ft_printf(char const *format, ...);
+int				ft_dprintf(int fd, char const *format, ...);
+int				ft_vdprintf(int fd, char const *format, va_list ap);
 
 /*
 t_iarr			*iarr_new(int c);
