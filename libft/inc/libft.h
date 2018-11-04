@@ -128,6 +128,7 @@ void			printf_get_precision(char **format, t_printf *data);
 void			printf_get_length(char **format, t_printf *data);
 void			printf_get_specifier(char **format, t_printf *data);
 void			printf_form_output(t_printf *data, va_list ap);
+long			printf_cast(t_printf *data, long input);
 
 /*
 t_iarr			*iarr_new(int c);

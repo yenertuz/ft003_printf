@@ -19,6 +19,9 @@ void		printf_form_output(t_printf *data, va_list ap)
 	input = va_arg(ap, long);
 	input = printf_cast(data, input);
 	output = get_raw_output(data->specifier, input);
+	printf_apply_precision(&output, data);
+	printf_apply_flags(&output, data);
+	printf_apply_width(&output, data);
 	data->output = output;
 	data->output_length = ft_strlen(output);
 }
