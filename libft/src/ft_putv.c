@@ -1,39 +1,50 @@
 #include "libft.h"
 
-static void	putv_helper(int c, char *key, long value)
+static void	putv_helper(int c, long value)
 {
 	if (c == 'b')
-		{PS(key); PS(": "); PN((unsigned char)(value)); NL;}
+		{
+			value = (unsigned char)(value);
+			PN(value); NL;
+		}
 	if (c == 'n')
-		{PS(key); PS(": "); ft_putlong(value); NL;}
+	{
+		ft_putlong(value); NL;
+	}
 	if (c == 's')
-		{PS(key); PE(": {"); PE((char*)(value)); PE("}");}
+	{
+		PE((char*)(value));
+	}
 	if (c == 'c')
-		{PS(key); PS(": "); PC((char)(value)); NL;}
+	{
+		PC((char)(value)); NL;
+	}
 	if (c == 'u')
-		{PS(key); PS(": "); ft_putulong((unsigned long)value); NL;}
-	
+	{
+		ft_putulong((unsigned long)value); NL;
+	}
 }
 
-void		ft_putv(int c, ...)
+static char	*get_type(int c)
 {
-	va_list		ap;
-	int			c2;
+	if (c == 'b')
+		return ("byte");
+	if (c == 'n')
+		return ("signed");
+	if (c == 'u')
+		return ("unsigned");
+	if (c == 's')
+		return ("string");
+	if (c == 'c')
+		return ("char");
+	return ("");
+}
 
-	va_start(ap, c);
-	if (c == 0)
-	{ va_end(ap); return ;}
-	else
-		putv_helper(c, va_arg(ap, char*), va_arg(ap, long));
-	while (1)
-	{
-		c2 = (va_arg(ap, int));
-		if (c2 == 0)
-		{
-			va_end(ap);
-			return ;
-		}
-		else
-			putv_helper(c2, va_arg(ap, char*), va_arg(ap, long));
-	}
+void		ft_putv(int c, char *key, long value)
+{
+	char	*type;
+
+	type = get_type(c);
+	PS(key); PS(" ("); PS(type); PS("):\n");
+	putv_helper(c, value);
 }

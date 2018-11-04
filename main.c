@@ -2,18 +2,9 @@
 
 int	main(void)
 {
-	long 			number;
-	unsigned long	u_number;
-	char			*converted;
+	int	result;
 
-	number = -9223372036854775807 - 1;
-	converted = ft_ltoi(number);
-	PE(converted);
-	free(converted);
-	u_number = (unsigned long)(123456789123456789);
-	converted = ft_utoi(u_number);
-	PE(converted);
-	free(converted);
-	//ft_putv('s', "test", "zest", 'b', "test_byte", 'x', 'u', "test_long", -999999999999, 0);
+	result = ft_printf("%#-##+3.5hd\n", -99999999);
+	PN(result); NL;
 	return (0);
 }

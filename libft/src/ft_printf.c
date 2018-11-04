@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int	ft_printf(char const *format, ...)
+int	ft_printf(char *format, ...)
 {
 	va_list	ap;
 	int		result;

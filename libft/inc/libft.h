@@ -11,10 +11,23 @@
 # define PC(p) ft_putchar(p)
 # define PS(p) ft_putstr(p)
 # define PE(p) ft_putendl(p)
-# define PN(p) ft_putnbr(p)
+# define PV(p1, p2, p3) ft_putv(p1, p2, (long)(p3))
 # define NL ft_putchar('\n')
 # define ER(p) ft_error(p)
 # define DB ft_putstr("\nDEBUG\n");
+# define PN(p) ft_putnbr(p)
+
+typedef struct		s_printf
+{
+	char			flags[6];
+	unsigned int	width;
+	unsigned int	precision;
+	char			length[3];
+	char			specifier;
+	char			*output;
+	int				output_length;
+	int				is_precision;
+}					t_printf;
 
 typedef struct		s_list
 {
@@ -100,14 +113,21 @@ void			free_cdp(char **dp);
 void			ft_putulong(unsigned long number);
 void			ft_putlong(long number);
 
-void			ft_putv(int c, ...);
+void			ft_putv(int c, char *key, long value);
 
 char			*ft_ltoi(long number);
 char			*ft_utoi(unsigned long number);
 
-int				ft_printf(char const *format, ...);
-int				ft_dprintf(int fd, char const *format, ...);
-int				ft_vdprintf(int fd, char const *format, va_list ap);
+int				ft_printf(char *format, ...);
+int				ft_dprintf(int fd, char *format, ...);
+int				ft_vdprintf(int fd, char *format, va_list ap);
+
+void			printf_get_flags(char **format, t_printf *data);
+void			printf_get_width(char **format, t_printf *data);
+void			printf_get_precision(char **format, t_printf *data);
+void			printf_get_length(char **format, t_printf *data);
+void			printf_get_specifier(char **format, t_printf *data);
+void			printf_form_output(t_printf *data, va_list ap);
 
 /*
 t_iarr			*iarr_new(int c);
