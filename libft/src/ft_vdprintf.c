@@ -23,9 +23,9 @@ static int	vdprintf_helper(char **format, va_list ap, int fd,
 	printf_get_precision(format, data);
 	printf_get_length(format, data);
 	printf_get_specifier(format, data);
-	print_data(data);
+	print_data(data); PE("@@"); NL;
 	printf_form_output(data, ap);
-	write(fd, data->output, data->output_length);
+	write(fd, data->output, data->output_length); PE("#");
 	result = (int)(data->output_length);
 	free(data->output);
 	return ((int)(result));

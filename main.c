@@ -4,7 +4,7 @@ int	main(void)
 {
 	int	result;
 
-	result = ft_printf("%#-##+3.5hd\n", -99999999);
+	result = ft_printf("%b", -2);
 	PN(result); NL;
 	return (0);
 }
